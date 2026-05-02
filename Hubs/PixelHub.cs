@@ -6,7 +6,7 @@ namespace codepixel_backend.Hubs
     {
         public async Task SendPixelUpdate(int x, int y, string color, string userId)
         {
-            await Clients.All.SendAsync("ReceivePixelUpdate", x, y, color, userId);
+            await Clients.All.SendAsync("PixelUpdated", new { x, y, color, userId });
         }
 
         public async Task JoinCanvas()

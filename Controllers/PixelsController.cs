@@ -58,8 +58,15 @@ namespace codepixel_backend.Controllers
 
             await _context.SaveChangesAsync();
 
-            // Notify all clients
-            await _hubContext.Clients.All.SendAsync("ReceivePixelUpdate", savedPixel.X, savedPixel.Y, savedPixel.Color, savedPixel.UserId);
+            await _hubContext.Clients.All.SendAsync("PixelUpdated", new
+            {
+                id = savedPixel.Id,
+                x = savedPixel.X,
+                y = savedPixel.Y,
+                color = savedPixel.Color,
+                userId = savedPixel.UserId,
+                placedAt = savedPixel.PlacedAt
+            });
 
             return Ok(savedPixel);
         }
