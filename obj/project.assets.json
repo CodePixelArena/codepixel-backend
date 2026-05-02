@@ -2851,19 +2851,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/admin/.nuget/packages/": {}
+    "/Users/sofi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/admin/Desktop/CodePixel/codepixel-backend/codepixel-backend.csproj",
+      "projectUniqueName": "/Users/sofi/CODEPIXEL/codepixel-backend/codepixel-backend.csproj",
       "projectName": "codepixel-backend",
-      "projectPath": "/Users/admin/Desktop/CodePixel/codepixel-backend/codepixel-backend.csproj",
-      "packagesPath": "/Users/admin/.nuget/packages/",
-      "outputPath": "/Users/admin/Desktop/CodePixel/codepixel-backend/obj/",
+      "projectPath": "/Users/sofi/CODEPIXEL/codepixel-backend/codepixel-backend.csproj",
+      "packagesPath": "/Users/sofi/.nuget/packages/",
+      "outputPath": "/Users/sofi/CODEPIXEL/codepixel-backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/admin/.nuget/NuGet/NuGet.Config"
+        "/Users/sofi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2941,7 +2941,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

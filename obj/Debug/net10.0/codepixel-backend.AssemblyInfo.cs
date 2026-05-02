@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("codepixel-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a2a7db8f746b6e90a89ee6fbacfa197d8526077")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48517651748ea50a0095be5f7b48dbf485e22820")]
 [assembly: System.Reflection.AssemblyProductAttribute("codepixel-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("codepixel-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

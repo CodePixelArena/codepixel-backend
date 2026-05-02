@@ -26,7 +26,10 @@ namespace codepixel_backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPixels()
         {
-            var pixels = await _context.Pixels.Include(p => p.User).ToListAsync();
+            var pixels = await _context.Pixels
+                .Include(p => p.User)
+                .OrderBy(p => p.PlacedAt)
+                .ToListAsync();
             return Ok(pixels);
         }
 
@@ -35,14 +38,30 @@ namespace codepixel_backend.Controllers
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null) return Unauthorized();
-            pixel.UserId = userId;
-            _context.Pixels.Add(pixel);
+
+            var savedPixel = await _context.Pixels
+                .FirstOrDefaultAsync(p => p.X == pixel.X && p.Y == pixel.Y);
+
+            if (savedPixel == null)
+            {
+                savedPixel = pixel;
+                savedPixel.UserId = userId;
+                savedPixel.PlacedAt = DateTime.UtcNow;
+                _context.Pixels.Add(savedPixel);
+            }
+            else
+            {
+                savedPixel.Color = pixel.Color;
+                savedPixel.UserId = userId;
+                savedPixel.PlacedAt = DateTime.UtcNow;
+            }
+
             await _context.SaveChangesAsync();
 
             // Notify all clients
-            await _hubContext.Clients.All.SendAsync("ReceivePixelUpdate", pixel.X, pixel.Y, pixel.Color, pixel.UserId);
+            await _hubContext.Clients.All.SendAsync("ReceivePixelUpdate", savedPixel.X, savedPixel.Y, savedPixel.Color, savedPixel.UserId);
 
-            return CreatedAtAction(nameof(GetPixels), pixel);
+            return Ok(savedPixel);
         }
 
         [HttpDelete("{id}")]
